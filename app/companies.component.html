@@ -1,0 +1,8 @@
+<h2>Companies</h2>
+<button (click)="gotoNew()">New</button>
+<ul class="companies">
+  <li *ngFor="let company of companies" (click)="gotoDetail(company)">
+    <span class="badge">{{company.id}}</span>
+    <span>{{company.name}}</span>
+  </li>
+</ul>

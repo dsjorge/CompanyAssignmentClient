@@ -1,0 +1,46 @@
+<div *ngIf="company">
+  <h2>{{company.name}} details!</h2>
+  <div>
+    <label>id: </label>{{company.id}}</div>
+  <div>
+    <label>name: </label>
+    <input [(ngModel)]="company.name" placeholder="name" />
+  </div>
+  <div>
+    <label>address: </label>
+    <input [(ngModel)]="company.address" placeholder="address" />
+  </div>
+  <div>
+    <label>city: </label>
+    <input [(ngModel)]="company.city" placeholder="city" />
+  </div>
+  <div>
+    <label>country: </label>
+    <input [(ngModel)]="company.country" placeholder="country" />
+  </div>
+  <div>
+    <label>email: </label>
+    <input [(ngModel)]="company.email" placeholder="email" />
+  </div>
+  <div>
+    <label>phone: </label>
+    <input [(ngModel)]="company.phone" placeholder="phone" />
+  </div>
+  <div>
+    <label>owners: </label>
+    <div class="ownerslist">
+      <div *ngFor="let owner of company.owners" style="float: left;">
+        {{owner.name}}
+        <button class="remove" (click)="removeOwner(owner.id); $event.stopPropagation()">X</button>
+      </div>
+    </div>
+  </div>
+  <div>
+    <label>available: </label>
+     <select type="number" [(ngModel)]="owner" (ngModelChange)="changeAvailableOwners($event)">
+      <option *ngFor="let item of availableOwners" [ngValue]="item">{{item.name}}</option>
+    </select>
+  </div>
+  <button (click)="goBack()">Back</button>
+  <button (click)="save()">Save</button>
+</div>
